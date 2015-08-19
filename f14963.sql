@@ -13,7 +13,7 @@ whenever sqlerror exit sql.sqlcode rollback
 begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2013.01.01'
-,p_release=>'5.0.0.00.31'
+,p_release=>'5.0.1.00.06'
 ,p_default_workspace_id=>50654249616769752
 ,p_default_application_id=>14963
 ,p_default_owner=>'APEX_VMORNEAU'
@@ -27,11 +27,11 @@ prompt APPLICATION 14963 - Theme Boilerplate
 -- Application Export:
 --   Application:     14963
 --   Name:            Theme Boilerplate
---   Date and Time:   02:42 Tuesday April 14, 2015
+--   Date and Time:   12:20 Wednesday August 19, 2015
 --   Exported By:     VINCENT.MORNEAU@GMAIL.COM
 --   Flashback:       0
 --   Export Type:     Application Export
---   Version:         5.0.0.00.31
+--   Version:         5.0.1.00.06
 --   Instance ID:     63113759365424
 --
 
@@ -107,7 +107,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_01=>'PATH'
 ,p_substitution_value_01=>'https://url-to-your-files.com'
 ,p_last_updated_by=>'VINCENT.MORNEAU@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150413122128'
+,p_last_upd_yyyymmddhh24miss=>'20150819121417'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>482
 ,p_ui_type_name => null
@@ -337,11 +337,11 @@ wwv_flow_api.create_template(
 '    #ROWS#',
 '</div>'))
 ,p_grid_row_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<div>',
+'<div class="row">',
 '    #COLUMNS#',
 '</div>'))
 ,p_grid_column_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<div class="#CSS_CLASSES#">',
+'<div class="col-#COLUMN_SPAN_NUMBER# #CSS_CLASSES#" #ATTRIBUTES#>',
 '    #CONTENT#',
 '</div>'))
 ,p_dialog_js_init_code=>'apex.navigation.dialog(#PAGE_URL#,{title:#TITLE#,height:#DIALOG_HEIGHT#,width:#DIALOG_WIDTH#,maxWidth:#DIALOG_MAX_WIDTH#,modal:#IS_MODAL#,dialog:#DIALOG#,#DIALOG_ATTRIBUTES#},#DIALOG_CSS_CLASSES#,#TRIGGERING_ELEMENT#);'
@@ -448,11 +448,11 @@ wwv_flow_api.create_template(
 '    #ROWS#',
 '</div>'))
 ,p_grid_row_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<div>',
+'<div class="row">',
 '    #COLUMNS#',
 '</div>'))
 ,p_grid_column_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<div class="#CSS_CLASSES#">',
+'<div class="col-#COLUMN_SPAN_NUMBER# #CSS_CLASSES#">',
 '    #CONTENT#',
 '</div>'))
 );
