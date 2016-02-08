@@ -20,280 +20,27 @@ wwv_flow_api.import_begin (
 );
 end;
 /
-prompt --application/set_environment
+prompt --application/themes/102
+begin
+    wwv_flow.g_flow_theme_id := 102;
+null;
+end;
+/
  
-prompt APPLICATION 14963 - Theme Boilerplate
 --
--- Application Export:
---   Application:     14963
---   Name:            Theme Boilerplate
---   Date and Time:   00:33 Tuesday January 26, 2016
---   Exported By:     VINCENT.MORNEAU@GMAIL.COM
---   Flashback:       0
---   Export Type:     Application Export
---   Version:         5.0.3.00.03
---   Instance ID:     63113759365424
+prompt  ...theme : 102
 --
-
--- Application Statistics:
---   Pages:                      1
---   Shared Components:
---     Logic:
---       Items:                  1
---       Processes:              2
---       Build Options:          1
---     Navigation:
---       Lists:                  2
---       Breadcrumbs:            1
---     Security:
---       Authentication:         1
---     User Interface:
---       Themes:                 1
---       Templates:
---         Page:                 2
---         Region:               1
---         Label:                1
---         List:                 1
---         Popup LOV:            1
---         Calendar:             1
---         Breadcrumb:           1
---         Button:               1
---         Report:               2
---     Globalization:
---     Reports:
---   Supporting Objects:  Included
-
-prompt --application/delete_application
+prompt  ...remove existing theme ...
 begin
-wwv_flow_api.remove_flow(wwv_flow.g_flow_id);
-end;
-/
-prompt --application/ui_types
-begin
+ wwv_flow_api.delete_theme(p_flow_id=> wwv_flow.g_flow_id , p_theme_id=>wwv_flow.g_flow_theme_id ,p_import=>'Y');
 null;
-end;
-/
-prompt --application/create_application
-begin
-wwv_flow_api.create_flow(
- p_id=>wwv_flow.g_flow_id
-,p_display_id=>nvl(wwv_flow_application_install.get_application_id,14963)
-,p_owner=>nvl(wwv_flow_application_install.get_schema,'APEX_VMORNEAU')
-,p_name=>nvl(wwv_flow_application_install.get_application_name,'Theme Boilerplate')
-,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'14963')
-,p_page_view_logging=>'YES'
-,p_page_protection_enabled_y_n=>'N'
-,p_checksum_salt=>'2EF51444DD573C61805687582DBA41A50C9B6F3E0E729BBA5361E6D3771F386B'
-,p_bookmark_checksum_function=>'MD5'
-,p_compatibility_mode=>'5.0'
-,p_flow_language=>'en'
-,p_flow_language_derived_from=>'FLOW_PRIMARY_LANGUAGE'
-,p_flow_image_prefix => nvl(wwv_flow_application_install.get_image_prefix,'')
-,p_authentication=>'PLUGIN'
-,p_authentication_id=>wwv_flow_api.id(7009057759871299269)
-,p_application_tab_set=>0
-,p_logo_image=>'TEXT:Theme Boilerplate'
-,p_public_user=>'APEX_PUBLIC_USER'
-,p_proxy_server=> nvl(wwv_flow_application_install.get_proxy,'')
-,p_flow_version=>'1.1'
-,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
-,p_flow_unavailable_text=>'This application is currently unavailable at this time.'
-,p_exact_substitutions_only=>'Y'
-,p_browser_cache=>'N'
-,p_browser_frame=>'S'
-,p_deep_linking=>'Y'
-,p_runtime_api_usage=>'T:O:W'
-,p_rejoin_existing_sessions=>'P'
-,p_csv_encoding=>'Y'
-,p_auto_time_zone=>'N'
-,p_default_error_display_loc=>'INLINE_IN_NOTIFICATION'
-,p_last_updated_by=>'VINCENT.MORNEAU@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20160126003231'
-,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
-,p_files_version=>482
-,p_ui_type_name => null
-);
-end;
-/
-prompt --application/shared_components/navigation/lists
-begin
-wwv_flow_api.create_list(
- p_id=>wwv_flow_api.id(7009628588599786487)
-,p_name=>'Navigation Menu'
-,p_list_status=>'PUBLIC'
-);
-wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7009629070751786495)
-,p_list_item_display_sequence=>10
-,p_list_item_link_text=>'Option 1'
-,p_list_item_link_target=>'#'
-,p_list_item_current_type=>'TARGET_PAGE'
-);
-wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7009629365509786495)
-,p_list_item_display_sequence=>20
-,p_list_item_link_text=>'Option 2'
-,p_list_item_link_target=>'#'
-,p_list_item_current_type=>'TARGET_PAGE'
-);
-wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7009629662049786496)
-,p_list_item_display_sequence=>30
-,p_list_item_link_text=>'Option 3'
-,p_list_item_link_target=>'#'
-,p_list_item_current_type=>'TARGET_PAGE'
-);
-wwv_flow_api.create_list(
- p_id=>wwv_flow_api.id(7010226572448775543)
-,p_name=>'Navigation Bar'
-,p_list_status=>'PUBLIC'
-);
-wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7010226775408775544)
-,p_list_item_display_sequence=>10
-,p_list_item_link_text=>'Option 1'
-,p_list_item_link_target=>'#'
-);
-wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7010227060538775547)
-,p_list_item_display_sequence=>20
-,p_list_item_link_text=>'Option 2'
-,p_list_item_link_target=>'#'
-);
-wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7010227389192775547)
-,p_list_item_display_sequence=>30
-,p_list_item_link_text=>'Logout'
-,p_list_item_link_target=>'&LOGOUT_URL.'
-);
-end;
-/
-prompt --application/shared_components/files
-begin
-null;
-end;
-/
-prompt --application/plugin_settings
-begin
-wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(6848958799851936411)
-,p_plugin_type=>'REGION TYPE'
-,p_plugin=>'NATIVE_CSS_CALENDAR'
-);
-wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(6848958872431936411)
-,p_plugin_type=>'REGION TYPE'
-,p_plugin=>'NATIVE_DISPLAY_SELECTOR'
-,p_attribute_01=>'N'
-);
-wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(7009046665301299239)
-,p_plugin_type=>'ITEM TYPE'
-,p_plugin=>'NATIVE_YES_NO'
-,p_attribute_01=>'Y'
-,p_attribute_03=>'N'
-);
-end;
-/
-prompt --application/shared_components/security/authorizations
-begin
-null;
-end;
-/
-prompt --application/shared_components/navigation/navigation_bar
-begin
-null;
-end;
-/
-prompt --application/shared_components/logic/application_processes
-begin
-wwv_flow_api.create_flow_process(
- p_id=>wwv_flow_api.id(23488269024415725377)
-,p_process_sequence=>-999
-,p_process_point=>'ON_NEW_INSTANCE'
-,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'OOS APEX Front-End Boost (Dev)'
-,p_process_sql_clob=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'declare',
-'    l_cookie owa_cookie.cookie;',
-'begin',
-'    l_cookie := owa_cookie.get(''oos-apex-frontend-boost-app-images'');',
-'    if l_cookie.vals.count > 0 then',
-'        :G_APP_IMAGES := l_cookie.vals(1);',
-'    else',
-'        :G_APP_IMAGES := :APP_IMAGES;',
-'    end if;',
-'end;'))
-,p_required_patch=>wwv_flow_api.id(18522628038371573914)
-);
-wwv_flow_api.create_flow_process(
- p_id=>wwv_flow_api.id(23488416316828134042)
-,p_process_sequence=>-999
-,p_process_point=>'ON_NEW_INSTANCE'
-,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'OOS APEX Front-End Boost (Not Dev)'
-,p_process_sql_clob=>':G_APP_IMAGES := :APP_IMAGES;'
-,p_required_patch=>-wwv_flow_api.id(18522628038371573914)
-);
-end;
-/
-prompt --application/shared_components/logic/application_items
-begin
-wwv_flow_api.create_flow_item(
- p_id=>wwv_flow_api.id(23487938436612651912)
-,p_name=>'G_APP_IMAGES'
-,p_protection_level=>'I'
-);
-end;
-/
-prompt --application/shared_components/logic/application_computations
-begin
-null;
-end;
-/
-prompt --application/shared_components/navigation/tabs/standard
-begin
-null;
-end;
-/
-prompt --application/shared_components/navigation/tabs/parent
-begin
-null;
-end;
-/
-prompt --application/shared_components/user_interface/lovs
-begin
-null;
-end;
-/
-prompt --application/shared_components/navigation/trees
-begin
-null;
-end;
-/
-prompt --application/pages/page_groups
-begin
-null;
-end;
-/
-prompt --application/comments
-begin
-null;
-end;
-/
-prompt --application/shared_components/navigation/breadcrumbs/breadcrumb
-begin
-wwv_flow_api.create_menu(
- p_id=>wwv_flow_api.id(7009058873932299274)
-,p_name=>' Breadcrumb'
-);
 end;
 /
 prompt --application/shared_components/user_interface/templates/page
 begin
 wwv_flow_api.create_template(
  p_id=>wwv_flow_api.id(1898031717988858628)
-,p_theme_id=>102
+, p_theme_id => wwv_flow.g_flow_theme_id
 ,p_name=>'Modal'
 ,p_is_popup=>true
 ,p_header_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
@@ -391,7 +138,7 @@ wwv_flow_api.create_page_tmpl_display_point(
 );
 wwv_flow_api.create_template(
  p_id=>wwv_flow_api.id(1898033083328858856)
-,p_theme_id=>102
+, p_theme_id => wwv_flow.g_flow_theme_id
 ,p_name=>'Standard'
 ,p_is_popup=>false
 ,p_header_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
@@ -515,7 +262,7 @@ wwv_flow_api.create_button_templates(
 '<a href="#LINK#" id="#BUTTON_ID#" class="#BUTTON_CSS_CLASSES#" #BUTTON_ATTRIBUTES#><i class="#ICON_CSS_CLASSES#"></i>#LABEL#</a>',
 ''))
 ,p_theme_class_id=>6
-,p_theme_id=>102
+,p_theme_id => wwv_flow.g_flow_theme_id
 );
 end;
 /
@@ -533,7 +280,7 @@ wwv_flow_api.create_plug_template(
 '</div>'))
 ,p_page_plug_template_name=>'Standard'
 ,p_plug_table_bgcolor=>'#ffffff'
-,p_theme_id=>102
+,p_theme_id => wwv_flow.g_flow_theme_id
 ,p_theme_class_id=>21
 ,p_plug_heading_bgcolor=>'#ffffff'
 ,p_plug_font_size=>'-1'
@@ -549,7 +296,7 @@ wwv_flow_api.create_list_template(
 ,p_list_template_current=>'<li class="active"><a href="#LINK#">#TEXT#</a></li>'
 ,p_list_template_noncurrent=>'<li><a href="#LINK#">#TEXT#</a></li>'
 ,p_list_template_name=>'Standard'
-,p_theme_id=>102
+,p_theme_id=>wwv_flow.g_flow_theme_id
 ,p_theme_class_id=>9
 ,p_list_template_before_rows=>' <ul id="#LIST_ID#" class="#COMPONENT_CSS_CLASSES#">'
 ,p_list_template_after_rows=>' '
@@ -587,7 +334,7 @@ wwv_flow_api.create_row_template(
 ,p_previous_page_template=>'<a href="#LINK#">previous</a>'
 ,p_next_set_template=>'<a href="#LINK#">next set</a>'
 ,p_previous_set_template=>'<a href="#LINK#">previous set</a>'
-,p_theme_id=>102
+,p_theme_id=>wwv_flow.g_flow_theme_id
 ,p_theme_class_id=>7
 );
 begin
@@ -612,7 +359,7 @@ wwv_flow_api.create_row_template(
 ,p_row_template_display_cond2=>'0'
 ,p_row_template_display_cond3=>'0'
 ,p_row_template_display_cond4=>'0'
-,p_theme_id=>102
+,p_theme_id=>wwv_flow.g_flow_theme_id
 ,p_theme_class_id=>7
 );
 end;
@@ -626,7 +373,7 @@ wwv_flow_api.create_field_template(
 ,p_template_body2=>'</label>'
 ,p_before_item=>'<div class="#ITEM_CSS_CLASSES#">'
 ,p_after_item=>'</div>'
-,p_theme_id=>102
+,p_theme_id=>wwv_flow.g_flow_theme_id
 ,p_theme_class_id=>5
 );
 end;
@@ -643,7 +390,7 @@ wwv_flow_api.create_menu_template(
 ,p_after_last=>'</div>'
 ,p_max_levels=>12
 ,p_start_with_node=>'PARENT_TO_LEAF'
-,p_theme_id=>102
+,p_theme_id=>wwv_flow.g_flow_theme_id
 ,p_theme_class_id=>3
 );
 end;
@@ -653,7 +400,7 @@ begin
 wwv_flow_api.create_popup_lov_template(
  p_id=>wwv_flow_api.id(1898209528033964143)
 ,p_page_name=>'Popup - Standard'
-,p_theme_id=>102
+,p_theme_id=>wwv_flow.g_flow_theme_id
 ,p_theme_class_id=>1
 ,p_translate_this_template=>'N'
 );
@@ -690,7 +437,7 @@ wwv_flow_api.create_calendar_template(
 ,p_nonday_close_format=>'</td>'
 ,p_week_open_format=>'<tr>'
 ,p_week_close_format=>'</tr> '
-,p_theme_id=>102
+,p_theme_id=>wwv_flow.g_flow_theme_id
 ,p_theme_class_id=>4
 );
 end;
@@ -699,7 +446,7 @@ prompt --application/shared_components/user_interface/themes
 begin
 wwv_flow_api.create_theme(
  p_id=>wwv_flow_api.id(1897955929522789317)
-,p_theme_id=>102
+,p_theme_id=>wwv_flow.g_flow_theme_id
 ,p_theme_name=>'Theme Boilerplate'
 ,p_ui_type_name=>'DESKTOP'
 ,p_navigation_type=>'L'
@@ -729,7 +476,6 @@ wwv_flow_api.create_theme(
 ,p_default_required_label=>wwv_flow_api.id(1898094742951880302)
 ,p_default_page_transition=>'NONE'
 ,p_default_popup_transition=>'NONE'
-,p_file_prefix => nvl(wwv_flow_application_install.get_static_theme_file_prefix(102),'')
 ,p_icon_library=>'FONTAWESOME'
 );
 end;
@@ -753,119 +499,9 @@ prompt --application/shared_components/user_interface/template_opt_groups
 begin
 wwv_flow_api.create_template_opt_group(
  p_id=>wwv_flow_api.id(1898038462020851021)
-,p_theme_id=>102
+,p_theme_id => wwv_flow.g_flow_theme_id
 ,p_name=>'SECTION_HEADER_SIZE'
 ,p_display_name=>'Section Header Size'
-,p_display_sequence=>1
-,p_template_types=>'REGION'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(5986450542297561082)
-,p_theme_id=>101
-,p_name=>'COLLAPSIBLE_BEHAVIOR'
-,p_display_name=>'Collapsible Behavior'
-,p_display_sequence=>1
-,p_template_types=>'REPORT'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6060344665928925842)
-,p_theme_id=>101
-,p_name=>'LANGUAGE_TYPE'
-,p_display_name=>'Language Type'
-,p_display_sequence=>1
-,p_template_types=>'REGION'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6136627898890731948)
-,p_theme_id=>101
-,p_name=>'ALIGNMENT'
-,p_display_name=>'Alignment'
-,p_display_sequence=>1
-,p_template_types=>'REGION'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6419492312715526486)
-,p_theme_id=>101
-,p_name=>'SHADOW'
-,p_display_name=>'Shadow'
-,p_display_sequence=>1
-,p_template_types=>'BUTTON'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6851873626225048068)
-,p_theme_id=>101
-,p_name=>'SECTION_HEADER_SIZE'
-,p_display_name=>'Section Header Size'
-,p_display_sequence=>1
-,p_template_types=>'REGION'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6855062547056097552)
-,p_theme_id=>101
-,p_name=>'SIZE'
-,p_display_name=>'Size'
-,p_display_sequence=>1
-,p_template_types=>'BUTTON'
-,p_null_text=>'Default'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6855080966971099312)
-,p_theme_id=>101
-,p_name=>'TYPE'
-,p_display_name=>'Type'
-,p_display_sequence=>1
-,p_template_types=>'BUTTON'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6855083057112105446)
-,p_theme_id=>101
-,p_name=>'WAVE_COLOR'
-,p_display_name=>'Wave Color'
-,p_display_sequence=>1
-,p_template_types=>'BUTTON'
-,p_null_text=>'None'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(7546478673758311566)
-,p_theme_id=>101
-,p_name=>'SHADOW'
-,p_display_name=>'Shadow'
-,p_display_sequence=>1
-,p_template_types=>'REGION'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(7558615907690811539)
-,p_theme_id=>101
-,p_name=>'BACKGROUND_COLOR'
-,p_display_name=>'Background Color'
-,p_display_sequence=>1
-,p_template_types=>'REGION'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(7558616686997816189)
-,p_theme_id=>101
-,p_name=>'BACKGROUND_MODIFIER'
-,p_display_name=>'Background Modifier'
-,p_display_sequence=>1
-,p_template_types=>'REGION'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(7558637397141827612)
-,p_theme_id=>101
-,p_name=>'TEXT_COLOR'
-,p_display_name=>'Text Color'
 ,p_display_sequence=>1
 ,p_template_types=>'REGION'
 ,p_is_advanced=>'N'
@@ -877,134 +513,8 @@ begin
 null;
 end;
 /
-prompt --application/shared_components/logic/build_options
 begin
-wwv_flow_api.create_build_option(
- p_id=>wwv_flow_api.id(18522628038371573914)
-,p_build_option_name=>'DEV_ONLY'
-,p_build_option_status=>'EXCLUDE'
-,p_default_on_export=>'EXCLUDE'
-);
-end;
-/
-prompt --application/shared_components/globalization/language
-begin
-null;
-end;
-/
-prompt --application/shared_components/globalization/translations
-begin
-null;
-end;
-/
-prompt --application/shared_components/globalization/messages
-begin
-null;
-end;
-/
-prompt --application/shared_components/globalization/dyntranslations
-begin
-null;
-end;
-/
-prompt --application/shared_components/user_interface/shortcuts
-begin
-null;
-end;
-/
-prompt --application/shared_components/security/authentications
-begin
-wwv_flow_api.create_authentication(
- p_id=>wwv_flow_api.id(7009057759871299269)
-,p_name=>'Application Express Authentication'
-,p_scheme_type=>'NATIVE_APEX_ACCOUNTS'
-,p_invalid_session_type=>'LOGIN'
-,p_use_secure_cookie_yn=>'N'
-,p_ras_mode=>0
-);
-end;
-/
-prompt --application/ui_types
-begin
-null;
-end;
-/
-prompt --application/user_interfaces
-begin
-wwv_flow_api.create_user_interface(
- p_id=>wwv_flow_api.id(7009057560639299266)
-,p_ui_type_name=>'DESKTOP'
-,p_display_name=>'Responsive'
-,p_display_seq=>10
-,p_use_auto_detect=>false
-,p_is_default=>true
-,p_theme_id=>102
-,p_home_url=>'f?p=&APP_ID.:1:&SESSION.'
-,p_login_url=>'f?p=&APP_ID.:LOGIN:&SESSION.'
-,p_global_page_id=>0
-,p_navigation_list_id=>wwv_flow_api.id(7009628588599786487)
-,p_navigation_list_position=>'SIDE'
-,p_navigation_list_template_id=>wwv_flow_api.id(1898096412288884946)
-,p_nav_list_template_options=>'#DEFAULT#'
-,p_content_delivery_network=>'GOOGLE'
-,p_nav_bar_type=>'LIST'
-,p_nav_bar_list_id=>wwv_flow_api.id(7010226572448775543)
-,p_nav_bar_list_template_id=>wwv_flow_api.id(1898096412288884946)
-,p_nav_bar_template_options=>'#DEFAULT#'
-);
-end;
-/
-prompt --application/user_interfaces/combined_files
-begin
-null;
-end;
-/
-prompt --application/pages/page_00000
-begin
-wwv_flow_api.create_page(
- p_id=>0
-,p_user_interface_id=>wwv_flow_api.id(7009057560639299266)
-,p_name=>'Global Page'
-,p_page_mode=>'NORMAL'
-,p_step_title=>'Global Page - Desktop'
-,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
-,p_first_item=>'NO_FIRST_ITEM'
-,p_step_template=>wwv_flow_api.id(1898033083328858856)
-,p_page_template_options=>'#DEFAULT#'
-,p_dialog_chained=>'Y'
-,p_overwrite_navigation_list=>'N'
-,p_nav_list_template_options=>'#DEFAULT#'
-,p_page_is_public_y_n=>'N'
-,p_protection_level=>'D'
-,p_cache_mode=>'NOCACHE'
-,p_last_updated_by=>'VINCENT.MORNEAU@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20150412222933'
-);
-end;
-/
-prompt --application/deployment/definition
-begin
-null;
-end;
-/
-prompt --application/deployment/install
-begin
-null;
-end;
-/
-prompt --application/deployment/checks
-begin
-null;
-end;
-/
-prompt --application/deployment/buildoptions
-begin
-null;
-end;
-/
-prompt --application/end_environment
-begin
-wwv_flow_api.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, false));
+wwv_flow_api.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, false), p_is_component_import => true);
 commit;
 end;
 /
