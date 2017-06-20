@@ -1,0 +1,103 @@
+{{#inline_css}}
+{{/inline_css}}
+{{#header_template}}
+<!DOCTYPE html>
+<html class="#RTL_CLASS# page-&APP_PAGE_ID. app-&APP_ALIAS." lang="&BROWSER_LANGUAGE." #TEXT_DIRECTION#>
+<head>
+	<title>#TITLE#</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+	<meta name="author" content="Vincent Morneau">
+	<meta name="description" content="APEX Theme Boilerplate">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+	#APEX_CSS#
+	#THEME_CSS#
+	#TEMPLATE_CSS#
+	#THEME_STYLE_CSS#
+	#APPLICATION_CSS#
+	#PAGE_CSS#
+	#FAVICONS#
+	#HEAD#
+</head>
+<body id="#PAGE_STATIC_ID#" class="#PAGE_CSS_CLASSES#" #TEXT_DIRECTION# #ONLOAD#>
+{{/header_template}}
+
+{{#box}}
+#FORM_OPEN#
+
+#REGION_POSITION_01#
+#REGION_POSITION_02#
+#REGION_POSITION_03#
+#REGION_POSITION_04#
+
+<a href="#HOME_LINK#">#LOGO#</a>
+
+#NAVIGATION_BAR#
+#TOP_GLOBAL_NAVIGATION_LIST#
+#SIDE_GLOBAL_NAVIGATION_LIST#
+
+#GLOBAL_NOTIFICATION#
+#SUCCESS_MESSAGE#
+#NOTIFICATION_MESSAGE#
+#BODY#
+
+#REGION_POSITION_05#
+#REGION_POSITION_06#
+#REGION_POSITION_07#
+#REGION_POSITION_08#
+
+#APP_VERSION#
+#CUSTOMIZE#
+#SCREEN_READER_TOGGLE#
+
+#FORM_CLOSE#
+{{/box}}
+
+{{#footer_template}}
+#DEVELOPER_TOOLBAR#
+#APEX_JAVASCRIPT#
+#GENERATED_CSS#
+#THEME_JAVASCRIPT#
+#TEMPLATE_JAVASCRIPT#
+#APPLICATION_JAVASCRIPT#
+#PAGE_JAVASCRIPT#
+#GENERATED_JAVASCRIPT#
+</body>
+</html>
+{{/footer_template}}
+
+{{#success_message}}
+<div>#SUCCESS_MESSAGE#</div>
+{{/success_message}}
+{{#message}}
+<div>#MESSAGE#</div>
+{{/message}}
+
+{{#error_page_template}}
+<div>
+	<p>#MESSAGE#</p>
+	<p>#ADDITIONAL_INFO#</p>
+	<p>#TECHNICAL_INFO#</p>
+</div>
+<a href="#BACK_LINK#">#OK#</a>
+{{/error_page_template}}
+
+{{#grid_template}}
+<div class="container">#ROWS#</div>
+{{/grid_template}}
+{{#grid_row_template}}
+<div class="row">#COLUMNS#</div>
+{{/grid_row_template}}
+{{#grid_column_template}}
+<div class="col col-#COLUMN_SPAN_NUMBER# #CSS_CLASSES#" #ATTRIBUTES#>#CONTENT#</div>
+{{/grid_column_template}}
+
+{{#template_option_groups}}
+[]
+{{/template_option_groups}}
+
+{{#template_options}}
+[]
+{{/template_options}}

@@ -5,42 +5,41 @@ whenever sqlerror exit sql.sqlcode rollback
 -- ORACLE Application Express (APEX) export file
 --
 -- You should run the script connected to SQL*Plus as the Oracle user
--- APEX_050000 or as the owner (parsing schema) of the application.
+-- APEX_050100 or as the owner (parsing schema) of the application.
 --
 -- NOTE: Calls to apex_application_install override the defaults below.
 --
 --------------------------------------------------------------------------------
 begin
 wwv_flow_api.import_begin (
- p_version_yyyy_mm_dd=>'2013.01.01'
-,p_release=>'5.0.3.00.03'
-,p_default_workspace_id=>50654249616769752
-,p_default_application_id=>14963
-,p_default_owner=>'APEX_VMORNEAU'
+ p_version_yyyy_mm_dd=>'2016.08.24'
+,p_release=>'5.1.0.00.45'
+,p_default_workspace_id=>1871301519555315
+,p_default_application_id=>123
+,p_default_owner=>'OOS_USER'
 );
 end;
 /
 prompt --application/set_environment
  
-prompt APPLICATION 14963 - Theme Boilerplate
+prompt APPLICATION 123 - Theme Boilerplate
 --
 -- Application Export:
---   Application:     14963
+--   Application:     123
 --   Name:            Theme Boilerplate
---   Date and Time:   00:33 Tuesday January 26, 2016
---   Exported By:     VINCENT.MORNEAU@GMAIL.COM
+--   Date and Time:   17:29 Tuesday June 20, 2017
+--   Exported By:     OOS_USER
 --   Flashback:       0
 --   Export Type:     Application Export
---   Version:         5.0.3.00.03
---   Instance ID:     63113759365424
+--   Version:         5.1.0.00.45
+--   Instance ID:     230182471520822
 --
 
 -- Application Statistics:
 --   Pages:                      1
 --   Shared Components:
 --     Logic:
---       Items:                  1
---       Processes:              2
+--       Processes:              1
 --       Build Options:          1
 --     Navigation:
 --       Lists:                  2
@@ -50,7 +49,7 @@ prompt APPLICATION 14963 - Theme Boilerplate
 --     User Interface:
 --       Themes:                 1
 --       Templates:
---         Page:                 2
+--         Page:                 1
 --         Region:               1
 --         Label:                1
 --         List:                 1
@@ -61,7 +60,7 @@ prompt APPLICATION 14963 - Theme Boilerplate
 --         Report:               2
 --     Globalization:
 --     Reports:
---   Supporting Objects:  Included
+--   Supporting Objects:  Excluded
 
 prompt --application/delete_application
 begin
@@ -77,10 +76,10 @@ prompt --application/create_application
 begin
 wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
-,p_display_id=>nvl(wwv_flow_application_install.get_application_id,14963)
-,p_owner=>nvl(wwv_flow_application_install.get_schema,'APEX_VMORNEAU')
+,p_display_id=>nvl(wwv_flow_application_install.get_application_id,123)
+,p_owner=>nvl(wwv_flow_application_install.get_schema,'OOS_USER')
 ,p_name=>nvl(wwv_flow_application_install.get_application_name,'Theme Boilerplate')
-,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'14963')
+,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'123')
 ,p_page_view_logging=>'YES'
 ,p_page_protection_enabled_y_n=>'N'
 ,p_checksum_salt=>'2EF51444DD573C61805687582DBA41A50C9B6F3E0E729BBA5361E6D3771F386B'
@@ -88,14 +87,15 @@ wwv_flow_api.create_flow(
 ,p_compatibility_mode=>'5.0'
 ,p_flow_language=>'en'
 ,p_flow_language_derived_from=>'FLOW_PRIMARY_LANGUAGE'
+,p_direction_right_to_left=>'N'
 ,p_flow_image_prefix => nvl(wwv_flow_application_install.get_image_prefix,'')
 ,p_authentication=>'PLUGIN'
-,p_authentication_id=>wwv_flow_api.id(7009057759871299269)
+,p_authentication_id=>wwv_flow_api.id(7030459021455915295)
 ,p_application_tab_set=>0
 ,p_logo_image=>'TEXT:Theme Boilerplate'
 ,p_public_user=>'APEX_PUBLIC_USER'
 ,p_proxy_server=> nvl(wwv_flow_application_install.get_proxy,'')
-,p_flow_version=>'1.1'
+,p_flow_version=>'v3.0.0'
 ,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
 ,p_flow_unavailable_text=>'This application is currently unavailable at this time.'
 ,p_exact_substitutions_only=>'Y'
@@ -107,8 +107,8 @@ wwv_flow_api.create_flow(
 ,p_csv_encoding=>'Y'
 ,p_auto_time_zone=>'N'
 ,p_default_error_display_loc=>'INLINE_IN_NOTIFICATION'
-,p_last_updated_by=>'VINCENT.MORNEAU@GMAIL.COM'
-,p_last_upd_yyyymmddhh24miss=>'20160126003231'
+,p_last_updated_by=>'OOS_USER'
+,p_last_upd_yyyymmddhh24miss=>'20170620171946'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>482
 ,p_ui_type_name => null
@@ -118,50 +118,50 @@ end;
 prompt --application/shared_components/navigation/lists
 begin
 wwv_flow_api.create_list(
- p_id=>wwv_flow_api.id(7009628588599786487)
+ p_id=>wwv_flow_api.id(7031029850184402513)
 ,p_name=>'Navigation Menu'
 ,p_list_status=>'PUBLIC'
 );
 wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7009629070751786495)
+ p_id=>wwv_flow_api.id(7031030332336402521)
 ,p_list_item_display_sequence=>10
 ,p_list_item_link_text=>'Option 1'
 ,p_list_item_link_target=>'#'
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
 wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7009629365509786495)
+ p_id=>wwv_flow_api.id(7031030627094402521)
 ,p_list_item_display_sequence=>20
 ,p_list_item_link_text=>'Option 2'
 ,p_list_item_link_target=>'#'
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
 wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7009629662049786496)
+ p_id=>wwv_flow_api.id(7031030923634402522)
 ,p_list_item_display_sequence=>30
 ,p_list_item_link_text=>'Option 3'
 ,p_list_item_link_target=>'#'
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
 wwv_flow_api.create_list(
- p_id=>wwv_flow_api.id(7010226572448775543)
+ p_id=>wwv_flow_api.id(7031627834033391569)
 ,p_name=>'Navigation Bar'
 ,p_list_status=>'PUBLIC'
 );
 wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7010226775408775544)
+ p_id=>wwv_flow_api.id(7031628036993391570)
 ,p_list_item_display_sequence=>10
 ,p_list_item_link_text=>'Option 1'
 ,p_list_item_link_target=>'#'
 );
 wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7010227060538775547)
+ p_id=>wwv_flow_api.id(7031628322123391573)
 ,p_list_item_display_sequence=>20
 ,p_list_item_link_text=>'Option 2'
 ,p_list_item_link_target=>'#'
 );
 wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(7010227389192775547)
+ p_id=>wwv_flow_api.id(7031628650777391573)
 ,p_list_item_display_sequence=>30
 ,p_list_item_link_text=>'Logout'
 ,p_list_item_link_target=>'&LOGOUT_URL.'
@@ -176,22 +176,40 @@ end;
 prompt --application/plugin_settings
 begin
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(6848958799851936411)
+ p_id=>wwv_flow_api.id(21401503371616070)
+,p_plugin_type=>'REGION TYPE'
+,p_plugin=>'NATIVE_IR'
+,p_attribute_01=>'LEGACY'
+);
+wwv_flow_api.create_plugin_setting(
+ p_id=>wwv_flow_api.id(21401945485616070)
+,p_plugin_type=>'REGION TYPE'
+,p_plugin=>'NATIVE_IG'
+);
+wwv_flow_api.create_plugin_setting(
+ p_id=>wwv_flow_api.id(21402074226616070)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_COLOR_PICKER'
+,p_attribute_01=>'classic'
+);
+wwv_flow_api.create_plugin_setting(
+ p_id=>wwv_flow_api.id(6870360061436552437)
 ,p_plugin_type=>'REGION TYPE'
 ,p_plugin=>'NATIVE_CSS_CALENDAR'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(6848958872431936411)
+ p_id=>wwv_flow_api.id(6870360134016552437)
 ,p_plugin_type=>'REGION TYPE'
 ,p_plugin=>'NATIVE_DISPLAY_SELECTOR'
 ,p_attribute_01=>'N'
 );
 wwv_flow_api.create_plugin_setting(
- p_id=>wwv_flow_api.id(7009046665301299239)
+ p_id=>wwv_flow_api.id(7030447926885915265)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_plugin=>'NATIVE_YES_NO'
 ,p_attribute_01=>'Y'
 ,p_attribute_03=>'N'
+,p_attribute_05=>'SELECT_LIST'
 );
 end;
 /
@@ -208,42 +226,32 @@ end;
 prompt --application/shared_components/logic/application_processes
 begin
 wwv_flow_api.create_flow_process(
- p_id=>wwv_flow_api.id(23488269024415725377)
+ p_id=>wwv_flow_api.id(23509670286000341403)
 ,p_process_sequence=>-999
-,p_process_point=>'ON_NEW_INSTANCE'
+,p_process_point=>'BEFORE_HEADER'
 ,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'OOS APEX Front-End Boost (Dev)'
-,p_process_sql_clob=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+,p_process_name=>'APEX Nitro'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'declare',
-'    l_cookie owa_cookie.cookie;',
+'	l_cookie owa_cookie.cookie;',
 'begin',
-'    l_cookie := owa_cookie.get(''oos-apex-frontend-boost-app-images'');',
-'    if l_cookie.vals.count > 0 then',
-'        :G_APP_IMAGES := l_cookie.vals(1);',
-'    else',
-'        :G_APP_IMAGES := :APP_IMAGES;',
-'    end if;',
+'	l_cookie := owa_cookie.get(''oos-apex-nitro'');',
+'',
+'	if l_cookie.vals.count > 0 then',
+'		-- Use one of the following depending on your files location',
+'		apex_application.g_flow_images := l_cookie.vals(1);',
+'		-- apex_application.g_company_images := l_cookie.vals(1);',
+'		-- apex_application.g_theme_file_prefix := l_cookie.vals(1);',
+'		-- :G_APP_IMAGES := l_cookie.vals(1);',
+'	end if;',
 'end;'))
-,p_required_patch=>wwv_flow_api.id(18522628038371573914)
-);
-wwv_flow_api.create_flow_process(
- p_id=>wwv_flow_api.id(23488416316828134042)
-,p_process_sequence=>-999
-,p_process_point=>'ON_NEW_INSTANCE'
-,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'OOS APEX Front-End Boost (Not Dev)'
-,p_process_sql_clob=>':G_APP_IMAGES := :APP_IMAGES;'
-,p_required_patch=>-wwv_flow_api.id(18522628038371573914)
+,p_required_patch=>wwv_flow_api.id(18544029299956189940)
 );
 end;
 /
 prompt --application/shared_components/logic/application_items
 begin
-wwv_flow_api.create_flow_item(
- p_id=>wwv_flow_api.id(23487938436612651912)
-,p_name=>'G_APP_IMAGES'
-,p_protection_level=>'I'
-);
+null;
 end;
 /
 prompt --application/shared_components/logic/application_computations
@@ -276,15 +284,10 @@ begin
 null;
 end;
 /
-prompt --application/comments
-begin
-null;
-end;
-/
 prompt --application/shared_components/navigation/breadcrumbs/breadcrumb
 begin
 wwv_flow_api.create_menu(
- p_id=>wwv_flow_api.id(7009058873932299274)
+ p_id=>wwv_flow_api.id(7030460135516915300)
 ,p_name=>' Breadcrumb'
 );
 end;
@@ -292,182 +295,91 @@ end;
 prompt --application/shared_components/user_interface/templates/page
 begin
 wwv_flow_api.create_template(
- p_id=>wwv_flow_api.id(1898031717988858628)
-,p_theme_id=>102
-,p_name=>'Modal'
-,p_is_popup=>true
-,p_header_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<!DOCTYPE html>',
-'<head>',
-'    <title>#TITLE#</title>',
-'    ',
-'    <!-- Meta -->',
-'    <meta charset="utf-8">',
-'    <meta name="author" content="Vincent Morneau">',
-'    <meta name="description" content="APEX Theme Boilerplate">',
-'    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>',
-'    ',
-'    <!-- Mandatory APEX CSS -->',
-'    #HEAD#',
-'    #APEX_CSS#',
-'    ',
-'    <!-- Your Theme CSS -->',
-'    #THEME_CSS#',
-'    #THEME_STYLE_CSS#',
-'    #APPLICATION_CSS#',
-'    ',
-'    <!-- Additionnal CSS -->',
-'    #TEMPLATE_CSS#',
-'    #PAGE_CSS#',
-'</head>',
-'<body class="#PAGE_CSS_CLASSES#" #ONLOAD#>'))
-,p_box=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'#FORM_OPEN#',
-'',
-'<div class="modal #PAGE_CSS_CLASSES#">',
-'    <div class="modal-content">',
-'        #SUCCESS_MESSAGE#',
-'        #NOTIFICATION_MESSAGE#',
-'        #BODY#',
-'    </div>',
-'    <div class="modal-footer">',
-'        #REGION_POSITION_08#',
-'    </div>',
-'</div>',
-'',
-'#FORM_CLOSE#'))
-,p_footer_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<!-- Mandatory APEX JS -->',
-'#DEVELOPER_TOOLBAR#',
-'#APEX_JAVASCRIPT#',
-'',
-'<!-- Your JS -->',
-'#THEME_JAVASCRIPT#',
-'#APPLICATION_JAVASCRIPT#',
-'    ',
-'<!-- Additionnal JS -->',
-'#TEMPLATE_JAVASCRIPT#',
-'#PAGE_JAVASCRIPT#',
-'',
-'<!-- Generated code (plugins, etc.) -->',
-'#GENERATED_CSS#',
-'#GENERATED_JAVASCRIPT#',
-'</body>',
-'</html>'))
-,p_success_message=>'<div>#MESSAGE#</div>'
-,p_notification_message=>'<div>#MESSAGE#</div>'
-,p_theme_class_id=>8
-,p_grid_type=>'FIXED'
-,p_grid_max_columns=>12
-,p_grid_always_use_max_columns=>false
-,p_grid_has_column_span=>true
-,p_grid_always_emit=>false
-,p_grid_emit_empty_leading_cols=>true
-,p_grid_emit_empty_trail_cols=>false
-,p_grid_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<div class="container">',
-'    #ROWS#',
-'</div>'))
-,p_grid_row_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<div class="row">',
-'    #COLUMNS#',
-'</div>'))
-,p_grid_column_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<div class="col-#COLUMN_SPAN_NUMBER# #CSS_CLASSES#" #ATTRIBUTES#>',
-'    #CONTENT#',
-'</div>'))
-,p_dialog_js_init_code=>'apex.navigation.dialog(#PAGE_URL#,{title:#TITLE#,height:#DIALOG_HEIGHT#,width:#DIALOG_WIDTH#,maxWidth:#DIALOG_MAX_WIDTH#,modal:#IS_MODAL#,dialog:#DIALOG#,#DIALOG_ATTRIBUTES#},#DIALOG_CSS_CLASSES#,#TRIGGERING_ELEMENT#);'
-,p_dialog_js_close_code=>'apex.navigation.dialog.close(#IS_MODAL#,#TARGET#);'
-,p_dialog_js_cancel_code=>'apex.navigation.dialog.cancel(#IS_MODAL#);'
-,p_dialog_browser_frame=>'MODAL'
-);
-wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(1898032138567858635)
-,p_page_template_id=>wwv_flow_api.id(1898031717988858628)
-,p_name=>'Modal Footer'
-,p_placeholder=>'REGION_POSITION_08'
-,p_has_grid_support=>false
-,p_glv_new_row=>true
-);
-wwv_flow_api.create_template(
- p_id=>wwv_flow_api.id(1898033083328858856)
-,p_theme_id=>102
+ p_id=>wwv_flow_api.id(1919434344913474882)
+,p_theme_id=>600
 ,p_name=>'Standard'
+,p_internal_name=>'STANDARD'
 ,p_is_popup=>false
-,p_header_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+,p_header_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<!DOCTYPE html>',
+'<html class="#RTL_CLASS# page-&APP_PAGE_ID. app-&APP_ALIAS." lang="&BROWSER_LANGUAGE." #TEXT_DIRECTION#>',
 '<head>',
-'    <title>#TITLE#</title>',
-'    ',
-'    <!-- Meta -->',
-'    <meta charset="utf-8">',
-'    <meta name="author" content="Vincent Morneau">',
-'    <meta name="description" content="APEX Theme Boilerplate">',
-'    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>',
-'    ',
-'    <!-- Mandatory APEX CSS -->',
-'    #HEAD#',
-'    #APEX_CSS#',
-'    ',
-'    <!-- Your CSS -->',
-'    #THEME_CSS#',
-'    #THEME_STYLE_CSS#',
-'    #APPLICATION_CSS#',
-'    ',
-'    <!-- Additionnal CSS -->',
-'    #TEMPLATE_CSS#',
-'    #PAGE_CSS#',
+'	<title>#TITLE#</title>',
+'',
+'	<meta charset="utf-8">',
+'	<meta http-equiv="x-ua-compatible" content="IE=edge" />',
+'	<meta name="author" content="Vincent Morneau">',
+'	<meta name="description" content="APEX Theme Boilerplate">',
+'	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>',
+'',
+'	#APEX_CSS#',
+'	#THEME_CSS#',
+'	#TEMPLATE_CSS#',
+'	#THEME_STYLE_CSS#',
+'	#APPLICATION_CSS#',
+'	#PAGE_CSS#',
+'	#FAVICONS#',
+'	#HEAD#',
 '</head>',
-'<body id="#PAGE_STATIC_ID#" class="#PAGE_CSS_CLASSES#" #ONLOAD#>'))
-,p_box=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+'<body id="#PAGE_STATIC_ID#" class="#PAGE_CSS_CLASSES#" #TEXT_DIRECTION# #ONLOAD#>',
+''))
+,p_box=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '#FORM_OPEN#',
 '',
-'<!-- Item Container -->',
 '#REGION_POSITION_01#',
+'#REGION_POSITION_02#',
+'#REGION_POSITION_03#',
+'#REGION_POSITION_04#',
 '',
-'<!-- Header -->',
-'<header>',
-'    #NAVIGATION_BAR#',
-'    #TOP_GLOBAL_NAVIGATION_LIST#',
-'    #SIDE_GLOBAL_NAVIGATION_LIST#',
-'</header>',
+'<a href="#HOME_LINK#">#LOGO#</a>',
 '',
-'<!-- Main Content -->',
-'<main>',
-'    #GLOBAL_NOTIFICATION#',
-'    #SUCCESS_MESSAGE#',
-'    #NOTIFICATION_MESSAGE#',
-'    #BODY#',
-'</main>',
+'#NAVIGATION_BAR#',
+'#TOP_GLOBAL_NAVIGATION_LIST#',
+'#SIDE_GLOBAL_NAVIGATION_LIST#',
 '',
-'<!-- Footer -->',
-'<footer>',
-'    #REGION_POSITION_08#',
-'</footer>',
+'#GLOBAL_NOTIFICATION#',
+'#SUCCESS_MESSAGE#',
+'#NOTIFICATION_MESSAGE#',
+'#BODY#',
 '',
+'#REGION_POSITION_05#',
+'#REGION_POSITION_06#',
+'#REGION_POSITION_07#',
+'#REGION_POSITION_08#',
 '',
-'#FORM_CLOSE#'))
-,p_footer_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<!-- Mandatory APEX JS Stuff -->',
+'#APP_VERSION#',
+'#CUSTOMIZE#',
+'#SCREEN_READER_TOGGLE#',
+'',
+'#FORM_CLOSE#',
+''))
+,p_footer_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '#DEVELOPER_TOOLBAR#',
 '#APEX_JAVASCRIPT#',
-'',
-'<!-- Your JS -->',
-'#THEME_JAVASCRIPT#',
-'#APPLICATION_JAVASCRIPT#',
-'    ',
-'<!-- Additionnal JS -->',
-'#TEMPLATE_JAVASCRIPT#',
-'#PAGE_JAVASCRIPT#',
-'',
-'<!-- Generated Code (plugins, etc.) -->',
 '#GENERATED_CSS#',
+'#THEME_JAVASCRIPT#',
+'#TEMPLATE_JAVASCRIPT#',
+'#APPLICATION_JAVASCRIPT#',
+'#PAGE_JAVASCRIPT#',
 '#GENERATED_JAVASCRIPT#',
 '</body>',
-'</html>'))
-,p_success_message=>'<div>#MESSAGE#</div>'
-,p_notification_message=>'<div>#MESSAGE#</div>'
+'</html>',
+''))
+,p_success_message=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<div>#SUCCESS_MESSAGE#</div>',
+''))
+,p_notification_message=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<div>#MESSAGE#</div>',
+''))
 ,p_theme_class_id=>8
+,p_error_page_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<div>',
+'	<p>#MESSAGE#</p>',
+'	<p>#ADDITIONAL_INFO#</p>',
+'	<p>#TECHNICAL_INFO#</p>',
+'</div>',
+'<a href="#BACK_LINK#">#OK#</a>',
+''))
 ,p_grid_type=>'FIXED'
 ,p_grid_max_columns=>12
 ,p_grid_always_use_max_columns=>true
@@ -475,30 +387,28 @@ wwv_flow_api.create_template(
 ,p_grid_always_emit=>true
 ,p_grid_emit_empty_leading_cols=>true
 ,p_grid_emit_empty_trail_cols=>false
-,p_grid_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<div class="container">',
-'    #ROWS#',
-'</div>'))
-,p_grid_row_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<div class="row">',
-'    #COLUMNS#',
-'</div>'))
-,p_grid_column_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<div class="col-#COLUMN_SPAN_NUMBER# #CSS_CLASSES#">',
-'    #CONTENT#',
-'</div>'))
+,p_grid_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<div class="container">#ROWS#</div>',
+''))
+,p_grid_row_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<div class="row">#COLUMNS#</div>',
+''))
+,p_grid_column_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<div class="col col-#COLUMN_SPAN_NUMBER# #CSS_CLASSES#" #ATTRIBUTES#>#CONTENT#</div>',
+''))
+,p_translate_this_template=>'N'
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(1898033503589858857)
-,p_page_template_id=>wwv_flow_api.id(1898033083328858856)
+ p_id=>wwv_flow_api.id(1919434765174474883)
+,p_page_template_id=>wwv_flow_api.id(1919434344913474882)
 ,p_name=>'Item Container'
 ,p_placeholder=>'REGION_POSITION_01'
 ,p_has_grid_support=>false
 ,p_glv_new_row=>true
 );
 wwv_flow_api.create_page_tmpl_display_point(
- p_id=>wwv_flow_api.id(1898035522691858858)
-,p_page_template_id=>wwv_flow_api.id(1898033083328858856)
+ p_id=>wwv_flow_api.id(1919436784276474884)
+,p_page_template_id=>wwv_flow_api.id(1919434344913474882)
 ,p_name=>'Footer'
 ,p_placeholder=>'REGION_POSITION_08'
 ,p_has_grid_support=>false
@@ -509,102 +419,82 @@ end;
 prompt --application/shared_components/user_interface/templates/button
 begin
 wwv_flow_api.create_button_templates(
- p_id=>wwv_flow_api.id(1898205400757951469)
+ p_id=>wwv_flow_api.id(1919606662342567495)
 ,p_template_name=>'Standard'
-,p_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<a href="#LINK#" id="#BUTTON_ID#" class="#BUTTON_CSS_CLASSES#" #BUTTON_ATTRIBUTES#><i class="#ICON_CSS_CLASSES#"></i>#LABEL#</a>',
+,p_internal_name=>'STANDARD'
+,p_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<button type="button" onclick="#JAVASCRIPT#" id="#BUTTON_ID#" class="#BUTTON_CSS_CLASSES#" #BUTTON_ATTRIBUTES#>',
+'	<span>#LABEL#</span>',
+'	<i class="#ICON_CSS_CLASSES#"></i>',
+'</button>',
+'',
 ''))
+,p_translate_this_template=>'N'
 ,p_theme_class_id=>6
-,p_theme_id=>102
+,p_theme_id=>600
 );
 end;
 /
 prompt --application/shared_components/user_interface/templates/region
 begin
 wwv_flow_api.create_plug_template(
- p_id=>wwv_flow_api.id(1898027612270850949)
+ p_id=>wwv_flow_api.id(1919428873855466975)
 ,p_layout=>'TABLE'
-,p_template=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+,p_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<div id="#REGION_STATIC_ID#" class="#REGION_CSS_CLASSES#" #REGION_ATTRIBUTES#>',
-'    #TITLE#',
-'    #CREATE#    ',
-'    #BODY#    ',
-'    #CREATE2#',
-'</div>'))
+'	#ICON_CSS_CLASSES##TITLE#',
+'	#PREVIOUS##EDIT##COPY##EXPAND#',
+'	#BODY##SUB_REGIONS#',
+'	#CLOSE##HELP##CHANGE##DELETE##CREATE##CREATE2##NEXT#',
+'</div>',
+''))
 ,p_page_plug_template_name=>'Standard'
+,p_internal_name=>'STANDARD'
 ,p_plug_table_bgcolor=>'#ffffff'
-,p_theme_id=>102
+,p_theme_id=>600
 ,p_theme_class_id=>21
 ,p_plug_heading_bgcolor=>'#ffffff'
 ,p_plug_font_size=>'-1'
 ,p_default_label_alignment=>'RIGHT'
 ,p_default_field_alignment=>'LEFT'
+,p_translate_this_template=>'N'
 );
 end;
 /
 prompt --application/shared_components/user_interface/templates/list
 begin
 wwv_flow_api.create_list_template(
- p_id=>wwv_flow_api.id(1898096412288884946)
-,p_list_template_current=>'<li class="active"><a href="#LINK#">#TEXT#</a></li>'
-,p_list_template_noncurrent=>'<li><a href="#LINK#">#TEXT#</a></li>'
+ p_id=>wwv_flow_api.id(1919497673873500972)
+,p_list_template_current=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'    <li class="active"><a href="#LINK#">#ICON_CSS_CLASSES##TEXT#</a></li>',
+''))
+,p_list_template_noncurrent=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'    <li><a href="#LINK#">#ICON_CSS_CLASSES##TEXT#</a></li>',
+''))
 ,p_list_template_name=>'Standard'
-,p_theme_id=>102
+,p_internal_name=>'STANDARD'
+,p_theme_id=>600
 ,p_theme_class_id=>9
-,p_list_template_before_rows=>' <ul id="#LIST_ID#" class="#COMPONENT_CSS_CLASSES#">'
-,p_list_template_after_rows=>' '
+,p_list_template_before_rows=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<ul id="#LIST_ID#" class="#COMPONENT_CSS_CLASSES#">',
+''))
+,p_list_template_after_rows=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'</ul>',
+''))
 );
 end;
 /
 prompt --application/shared_components/user_interface/templates/report
 begin
 wwv_flow_api.create_row_template(
- p_id=>wwv_flow_api.id(1898046428474862479)
-,p_row_template_name=>'Standard - Column'
-,p_row_template1=>'<td headers="#COLUMN_HEADER_NAME#">#COLUMN_VALUE#</td>'
-,p_row_template_before_rows=>'<table id="report_#REGION_STATIC_ID#" class="#COMPONENT_CSS_CLASSES#">'
-,p_row_template_after_rows=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'</tbody>',
-'</table>',
-'<tfoot>',
-'    <div>#EXTERNAL_LINK##CSV_LINK#</div>',
-'</tfoot>'))
-,p_row_template_type=>'GENERIC_COLUMNS'
-,p_before_column_heading=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<thead>',
-'<tr>'))
-,p_column_heading_template=>'<th id="#COLUMN_HEADER_NAME#">#COLUMN_HEADER#</th>'
-,p_after_column_heading=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'</tr>',
-'</thead>',
-'<tbody>'))
-,p_row_template_display_cond1=>'0'
-,p_row_template_display_cond2=>'0'
-,p_row_template_display_cond3=>'0'
-,p_row_template_display_cond4=>'0'
-,p_pagination_template=>'<span class="instructiontext">#TEXT#</span>'
-,p_next_page_template=>'<a href="#LINK#">next</a>'
-,p_previous_page_template=>'<a href="#LINK#">previous</a>'
-,p_next_set_template=>'<a href="#LINK#">next set</a>'
-,p_previous_set_template=>'<a href="#LINK#">previous set</a>'
-,p_theme_id=>102
-,p_theme_class_id=>7
-);
-begin
-wwv_flow_api.create_row_template_patch(
- p_id=>wwv_flow_api.id(1898046428474862479)
-,p_row_template_before_first=>'<tr>'
-,p_row_template_after_last=>'</tr>'
-);
-exception when others then null;
-end;
-wwv_flow_api.create_row_template(
- p_id=>wwv_flow_api.id(1898072618661875621)
-,p_row_template_name=>'Standard - Row'
-,p_row_template1=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
-'<div class="#COMPONENT_CSS_CLASSES#">',
-'    #1##2##3##4##5#',
-'</div>'))
+ p_id=>wwv_flow_api.id(21404781451923576)
+,p_row_template_name=>'Standard - Named Column'
+,p_internal_name=>'STANDARD_NAMED_COLUMN'
+,p_row_template1=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'		<div class="#COMPONENT_CSS_CLASSES#">',
+'			#1##2##3##4##5#',
+'		</div>',
+''))
 ,p_row_template_before_rows=>' '
 ,p_row_template_after_rows=>' '
 ,p_row_template_type=>'NAMED_COLUMNS'
@@ -612,48 +502,139 @@ wwv_flow_api.create_row_template(
 ,p_row_template_display_cond2=>'0'
 ,p_row_template_display_cond3=>'0'
 ,p_row_template_display_cond4=>'0'
-,p_theme_id=>102
-,p_theme_class_id=>7
+,p_theme_id=>600
+,p_translate_this_template=>'N'
 );
+wwv_flow_api.create_row_template(
+ p_id=>wwv_flow_api.id(21404824157925688)
+,p_row_template_name=>'Standard - Generic Columns'
+,p_internal_name=>'STANDARD_GENERIC_COLUMNS'
+,p_row_template1=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'        <td headers="#COLUMN_HEADER_NAME#" #ALIGNMENT#>#COLUMN_VALUE#</td>',
+''))
+,p_row_template_before_rows=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<table id="report_#REGION_STATIC_ID#" class="#COMPONENT_CSS_CLASSES#" #REPORT_ATTRIBUTES#>',
+''))
+,p_row_template_after_rows=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'</tbody>',
+'</table>',
+'<tfoot>',
+'    <div>#EXTERNAL_LINK##CSV_LINK#</div>',
+'    <div>#PAGINATION#</div>',
+'</tfoot>',
+''))
+,p_row_template_type=>'GENERIC_COLUMNS'
+,p_before_column_heading=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<thead>',
+'<tr>',
+''))
+,p_column_heading_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'    <th id="#COLUMN_HEADER_NAME#" #ALIGNMENT# #COLUMN_WIDTH#>#COLUMN_HEADER#</th>',
+''))
+,p_after_column_heading=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'</tr>',
+'</thead>',
+'<tbody>',
+''))
+,p_row_template_display_cond1=>'0'
+,p_row_template_display_cond2=>'0'
+,p_row_template_display_cond3=>'0'
+,p_row_template_display_cond4=>'0'
+,p_pagination_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<span>#TEXT#</span>',
+''))
+,p_next_page_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<a href="#LINK#">next</a>',
+''))
+,p_previous_page_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<a href="#LINK#">previous</a>',
+''))
+,p_next_set_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<a href="#LINK#">next set</a>',
+''))
+,p_previous_set_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<a href="#LINK#">previous set</a>',
+''))
+,p_theme_id=>600
+,p_translate_this_template=>'N'
+);
+begin
+wwv_flow_api.create_row_template_patch(
+ p_id=>wwv_flow_api.id(21404824157925688)
+,p_row_template_before_first=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'    <tr>',
+''))
+,p_row_template_after_last=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'    </tr>',
+''))
+);
+exception when others then null;
+end;
 end;
 /
 prompt --application/shared_components/user_interface/templates/label
 begin
 wwv_flow_api.create_field_template(
- p_id=>wwv_flow_api.id(1898094742951880302)
+ p_id=>wwv_flow_api.id(1919496004536496328)
 ,p_template_name=>'Standard'
-,p_template_body1=>'<label for="#CURRENT_ITEM_NAME#" id="#LABEL_ID#">'
-,p_template_body2=>'</label>'
-,p_before_item=>'<div class="#ITEM_CSS_CLASSES#">'
-,p_after_item=>'</div>'
-,p_theme_id=>102
+,p_internal_name=>'STANDARD'
+,p_template_body1=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'    <label for="#CURRENT_ITEM_NAME#" id="#LABEL_ID#">',
+''))
+,p_template_body2=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'    </label>',
+''))
+,p_before_item=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<div id="#CURRENT_ITEM_NAME#_CONTAINER" class="#ITEM_CSS_CLASSES#">',
+''))
+,p_after_item=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'</div>',
+'',
+''))
+,p_before_element=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'    #ERROR_TEMPLATE#',
+''))
+,p_error_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<br>',
+'<span>#ERROR_MESSAGE#</span>',
+''))
+,p_theme_id=>600
 ,p_theme_class_id=>5
+,p_translate_this_template=>'N'
 );
 end;
 /
 prompt --application/shared_components/user_interface/templates/breadcrumb
 begin
 wwv_flow_api.create_menu_template(
- p_id=>wwv_flow_api.id(1898208397741960125)
+ p_id=>wwv_flow_api.id(1919609659326576151)
 ,p_name=>'Standard'
-,p_before_first=>'<div class="#COMPONENT_CSS_CLASSES#">'
-,p_current_page_option=>'#NAME#'
-,p_non_current_page_option=>'<a href="#LINK#">#NAME#</a>'
-,p_between_levels=>'&nbsp;&gt;&nbsp;'
-,p_after_last=>'</div>'
-,p_max_levels=>12
+,p_internal_name=>'STANDARD'
+,p_before_first=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<nav class="#COMPONENT_CSS_CLASSES#">',
+''))
+,p_current_page_option=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'    <a href="#LINK#">#NAME#</a>',
+''))
+,p_non_current_page_option=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'    <a href="#LINK#">#NAME#</a>',
+''))
+,p_after_last=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'</div>',
+''))
 ,p_start_with_node=>'PARENT_TO_LEAF'
-,p_theme_id=>102
+,p_theme_id=>600
 ,p_theme_class_id=>3
+,p_translate_this_template=>'N'
 );
 end;
 /
 prompt --application/shared_components/user_interface/templates/popuplov
 begin
 wwv_flow_api.create_popup_lov_template(
- p_id=>wwv_flow_api.id(1898209528033964143)
+ p_id=>wwv_flow_api.id(1919610789618580169)
 ,p_page_name=>'Popup - Standard'
-,p_theme_id=>102
+,p_theme_id=>600
 ,p_theme_class_id=>1
 ,p_translate_this_template=>'N'
 );
@@ -662,10 +643,11 @@ end;
 prompt --application/shared_components/user_interface/templates/calendar
 begin
 wwv_flow_api.create_calendar_template(
- p_id=>wwv_flow_api.id(1898171735491975398)
+ p_id=>wwv_flow_api.id(1919572997076591424)
 ,p_cal_template_name=>'Standard'
+,p_internal_name=>'STANDARD'
 ,p_day_of_week_format=>'<th>#IDAY#</th>'
-,p_month_title_format=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+,p_month_title_format=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<table cellspacing="0" cellpadding="0" border="0" summary="">',
 ' <tr>',
 '   <td align="center" style="font-weight:bold;">#IMONTH# #YYYY#</td>',
@@ -673,7 +655,7 @@ wwv_flow_api.create_calendar_template(
 ' <tr>',
 ' <td>'))
 ,p_month_open_format=>'<table border="1" cellpadding="1" cellspacing="1" summary="0">'
-,p_month_close_format=>wwv_flow_utilities.join(wwv_flow_t_varchar2(
+,p_month_close_format=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '</table></td>',
 '</tr>',
 '</table>',
@@ -690,7 +672,7 @@ wwv_flow_api.create_calendar_template(
 ,p_nonday_close_format=>'</td>'
 ,p_week_open_format=>'<tr>'
 ,p_week_close_format=>'</tr> '
-,p_theme_id=>102
+,p_theme_id=>600
 ,p_theme_class_id=>4
 );
 end;
@@ -698,39 +680,21 @@ end;
 prompt --application/shared_components/user_interface/themes
 begin
 wwv_flow_api.create_theme(
- p_id=>wwv_flow_api.id(1897955929522789317)
-,p_theme_id=>102
+ p_id=>wwv_flow_api.id(1919357191107405343)
+,p_theme_id=>600
 ,p_theme_name=>'Theme Boilerplate'
+,p_theme_internal_name=>'THEME_BOILERPLATE'
 ,p_ui_type_name=>'DESKTOP'
 ,p_navigation_type=>'L'
 ,p_nav_bar_type=>'LIST'
 ,p_is_locked=>false
-,p_default_page_template=>wwv_flow_api.id(1898033083328858856)
-,p_default_dialog_template=>wwv_flow_api.id(1898031717988858628)
-,p_default_button_template=>wwv_flow_api.id(1898205400757951469)
-,p_default_region_template=>wwv_flow_api.id(1898027612270850949)
-,p_default_chart_template=>wwv_flow_api.id(1898027612270850949)
-,p_default_form_template=>wwv_flow_api.id(1898027612270850949)
-,p_default_reportr_template=>wwv_flow_api.id(1898027612270850949)
-,p_default_tabform_template=>wwv_flow_api.id(1898027612270850949)
-,p_default_wizard_template=>wwv_flow_api.id(1898027612270850949)
-,p_default_menur_template=>wwv_flow_api.id(1898027612270850949)
-,p_default_listr_template=>wwv_flow_api.id(1898027612270850949)
-,p_default_irr_template=>wwv_flow_api.id(1898027612270850949)
-,p_default_report_template=>wwv_flow_api.id(1898046428474862479)
-,p_default_label_template=>wwv_flow_api.id(1898094742951880302)
-,p_default_menu_template=>wwv_flow_api.id(1898208397741960125)
-,p_default_calendar_template=>wwv_flow_api.id(1898171735491975398)
-,p_default_list_template=>wwv_flow_api.id(1898096412288884946)
+,p_default_page_template=>wwv_flow_api.id(1919434344913474882)
+,p_default_dialog_template=>wwv_flow_api.id(1919432979573474654)
 ,p_default_nav_list_position=>'SIDE'
-,p_default_dialogbtnr_template=>wwv_flow_api.id(1898027612270850949)
-,p_default_dialogr_template=>wwv_flow_api.id(1898027612270850949)
-,p_default_option_label=>wwv_flow_api.id(1898094742951880302)
-,p_default_required_label=>wwv_flow_api.id(1898094742951880302)
 ,p_default_page_transition=>'NONE'
 ,p_default_popup_transition=>'NONE'
-,p_file_prefix => nvl(wwv_flow_application_install.get_static_theme_file_prefix(102),'')
-,p_icon_library=>'FONTAWESOME'
+,p_file_prefix => nvl(wwv_flow_application_install.get_static_theme_file_prefix(600),'')
+,p_icon_library=>'FONTAPEX'
 );
 end;
 /
@@ -752,16 +716,7 @@ end;
 prompt --application/shared_components/user_interface/template_opt_groups
 begin
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(1898038462020851021)
-,p_theme_id=>102
-,p_name=>'SECTION_HEADER_SIZE'
-,p_display_name=>'Section Header Size'
-,p_display_sequence=>1
-,p_template_types=>'REGION'
-,p_is_advanced=>'N'
-);
-wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(5986450542297561082)
+ p_id=>wwv_flow_api.id(6007851803882177108)
 ,p_theme_id=>101
 ,p_name=>'COLLAPSIBLE_BEHAVIOR'
 ,p_display_name=>'Collapsible Behavior'
@@ -770,7 +725,7 @@ wwv_flow_api.create_template_opt_group(
 ,p_is_advanced=>'N'
 );
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6060344665928925842)
+ p_id=>wwv_flow_api.id(6081745927513541868)
 ,p_theme_id=>101
 ,p_name=>'LANGUAGE_TYPE'
 ,p_display_name=>'Language Type'
@@ -779,7 +734,7 @@ wwv_flow_api.create_template_opt_group(
 ,p_is_advanced=>'N'
 );
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6136627898890731948)
+ p_id=>wwv_flow_api.id(6158029160475347974)
 ,p_theme_id=>101
 ,p_name=>'ALIGNMENT'
 ,p_display_name=>'Alignment'
@@ -788,7 +743,7 @@ wwv_flow_api.create_template_opt_group(
 ,p_is_advanced=>'N'
 );
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6419492312715526486)
+ p_id=>wwv_flow_api.id(6440893574300142512)
 ,p_theme_id=>101
 ,p_name=>'SHADOW'
 ,p_display_name=>'Shadow'
@@ -797,7 +752,7 @@ wwv_flow_api.create_template_opt_group(
 ,p_is_advanced=>'N'
 );
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6851873626225048068)
+ p_id=>wwv_flow_api.id(6873274887809664094)
 ,p_theme_id=>101
 ,p_name=>'SECTION_HEADER_SIZE'
 ,p_display_name=>'Section Header Size'
@@ -806,7 +761,7 @@ wwv_flow_api.create_template_opt_group(
 ,p_is_advanced=>'N'
 );
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6855062547056097552)
+ p_id=>wwv_flow_api.id(6876463808640713578)
 ,p_theme_id=>101
 ,p_name=>'SIZE'
 ,p_display_name=>'Size'
@@ -816,7 +771,7 @@ wwv_flow_api.create_template_opt_group(
 ,p_is_advanced=>'N'
 );
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6855080966971099312)
+ p_id=>wwv_flow_api.id(6876482228555715338)
 ,p_theme_id=>101
 ,p_name=>'TYPE'
 ,p_display_name=>'Type'
@@ -825,7 +780,7 @@ wwv_flow_api.create_template_opt_group(
 ,p_is_advanced=>'N'
 );
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(6855083057112105446)
+ p_id=>wwv_flow_api.id(6876484318696721472)
 ,p_theme_id=>101
 ,p_name=>'WAVE_COLOR'
 ,p_display_name=>'Wave Color'
@@ -835,7 +790,7 @@ wwv_flow_api.create_template_opt_group(
 ,p_is_advanced=>'N'
 );
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(7546478673758311566)
+ p_id=>wwv_flow_api.id(7567879935342927592)
 ,p_theme_id=>101
 ,p_name=>'SHADOW'
 ,p_display_name=>'Shadow'
@@ -844,7 +799,7 @@ wwv_flow_api.create_template_opt_group(
 ,p_is_advanced=>'N'
 );
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(7558615907690811539)
+ p_id=>wwv_flow_api.id(7580017169275427565)
 ,p_theme_id=>101
 ,p_name=>'BACKGROUND_COLOR'
 ,p_display_name=>'Background Color'
@@ -853,7 +808,7 @@ wwv_flow_api.create_template_opt_group(
 ,p_is_advanced=>'N'
 );
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(7558616686997816189)
+ p_id=>wwv_flow_api.id(7580017948582432215)
 ,p_theme_id=>101
 ,p_name=>'BACKGROUND_MODIFIER'
 ,p_display_name=>'Background Modifier'
@@ -862,7 +817,7 @@ wwv_flow_api.create_template_opt_group(
 ,p_is_advanced=>'N'
 );
 wwv_flow_api.create_template_opt_group(
- p_id=>wwv_flow_api.id(7558637397141827612)
+ p_id=>wwv_flow_api.id(7580038658726443638)
 ,p_theme_id=>101
 ,p_name=>'TEXT_COLOR'
 ,p_display_name=>'Text Color'
@@ -880,7 +835,7 @@ end;
 prompt --application/shared_components/logic/build_options
 begin
 wwv_flow_api.create_build_option(
- p_id=>wwv_flow_api.id(18522628038371573914)
+ p_id=>wwv_flow_api.id(18544029299956189940)
 ,p_build_option_name=>'DEV_ONLY'
 ,p_build_option_status=>'EXCLUDE'
 ,p_default_on_export=>'EXCLUDE'
@@ -888,11 +843,6 @@ wwv_flow_api.create_build_option(
 end;
 /
 prompt --application/shared_components/globalization/language
-begin
-null;
-end;
-/
-prompt --application/shared_components/globalization/translations
 begin
 null;
 end;
@@ -915,7 +865,7 @@ end;
 prompt --application/shared_components/security/authentications
 begin
 wwv_flow_api.create_authentication(
- p_id=>wwv_flow_api.id(7009057759871299269)
+ p_id=>wwv_flow_api.id(7030459021455915295)
 ,p_name=>'Application Express Authentication'
 ,p_scheme_type=>'NATIVE_APEX_ACCOUNTS'
 ,p_invalid_session_type=>'LOGIN'
@@ -932,24 +882,25 @@ end;
 prompt --application/user_interfaces
 begin
 wwv_flow_api.create_user_interface(
- p_id=>wwv_flow_api.id(7009057560639299266)
+ p_id=>wwv_flow_api.id(7030458822223915292)
 ,p_ui_type_name=>'DESKTOP'
 ,p_display_name=>'Responsive'
 ,p_display_seq=>10
 ,p_use_auto_detect=>false
 ,p_is_default=>true
-,p_theme_id=>102
+,p_theme_id=>600
 ,p_home_url=>'f?p=&APP_ID.:1:&SESSION.'
 ,p_login_url=>'f?p=&APP_ID.:LOGIN:&SESSION.'
+,p_theme_style_by_user_pref=>false
 ,p_global_page_id=>0
-,p_navigation_list_id=>wwv_flow_api.id(7009628588599786487)
+,p_navigation_list_id=>wwv_flow_api.id(7031029850184402513)
 ,p_navigation_list_position=>'SIDE'
-,p_navigation_list_template_id=>wwv_flow_api.id(1898096412288884946)
+,p_navigation_list_template_id=>wwv_flow_api.id(1919497673873500972)
 ,p_nav_list_template_options=>'#DEFAULT#'
 ,p_content_delivery_network=>'GOOGLE'
 ,p_nav_bar_type=>'LIST'
-,p_nav_bar_list_id=>wwv_flow_api.id(7010226572448775543)
-,p_nav_bar_list_template_id=>wwv_flow_api.id(1898096412288884946)
+,p_nav_bar_list_id=>wwv_flow_api.id(7031627834033391569)
+,p_nav_bar_list_template_id=>wwv_flow_api.id(1919497673873500972)
 ,p_nav_bar_template_options=>'#DEFAULT#'
 );
 end;
@@ -963,13 +914,16 @@ prompt --application/pages/page_00000
 begin
 wwv_flow_api.create_page(
  p_id=>0
-,p_user_interface_id=>wwv_flow_api.id(7009057560639299266)
+,p_user_interface_id=>wwv_flow_api.id(7030458822223915292)
 ,p_name=>'Global Page'
 ,p_page_mode=>'NORMAL'
 ,p_step_title=>'Global Page - Desktop'
+,p_reload_on_submit=>'A'
+,p_warn_on_unsaved_changes=>'N'
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_first_item=>'NO_FIRST_ITEM'
-,p_step_template=>wwv_flow_api.id(1898033083328858856)
+,p_autocomplete_on_off=>'ON'
+,p_step_template=>wwv_flow_api.id(1919434344913474882)
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_chained=>'Y'
 ,p_overwrite_navigation_list=>'N'
@@ -980,26 +934,6 @@ wwv_flow_api.create_page(
 ,p_last_updated_by=>'VINCENT.MORNEAU@GMAIL.COM'
 ,p_last_upd_yyyymmddhh24miss=>'20150412222933'
 );
-end;
-/
-prompt --application/deployment/definition
-begin
-null;
-end;
-/
-prompt --application/deployment/install
-begin
-null;
-end;
-/
-prompt --application/deployment/checks
-begin
-null;
-end;
-/
-prompt --application/deployment/buildoptions
-begin
-null;
 end;
 /
 prompt --application/end_environment
