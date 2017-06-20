@@ -1,0 +1,11 @@
+{
+  "name": "apex-theme-boilerplate",
+  "author": "Vincent Morneau",
+  "version": "3.0.0",
+  "description": "Empty APEX application with basic stuff that any APEX theme needs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vincentmorneau/apex-theme-boilerplate.git"
+  }
+}
