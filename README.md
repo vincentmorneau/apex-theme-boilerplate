@@ -1,4 +1,6 @@
 # APEX Theme Boilerplate
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/vincentmorneau/apex-theme-boilerplate.svg)](https://greenkeeper.io/)
 For more info: http://vmorneau.me/apex-theme-boilerplate/
 
 The application export is included in this repo, as well as the theme export.
